@@ -1,10 +1,15 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker 'node:6.3' }
+    agent any
     stages {
-        stage('build') {
+        stage('test') {
             steps {
                 sh 'npm --version'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'npm run build'
             }
         }
     }
